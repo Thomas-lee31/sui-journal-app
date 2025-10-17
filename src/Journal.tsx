@@ -29,7 +29,16 @@ import {
      *
      * This will allow us to display the journal's title, entries, and verify ownership.
      */
-    const { data, isPending, error, refetch } = { data: null, isPending: false, error: null, refetch: () => {} } as any;
+    const { data, isPending, error, refetch } = useSuiClientQuery(
+        "getObject",
+        {
+          id,
+          options: {
+            showContent: true,
+            showOwner: true,
+          },
+        }
+      );
   
     const [waitingForTxn, setWaitingForTxn] = useState(false);
     const [newEntryContent, setNewEntryContent] = useState("");

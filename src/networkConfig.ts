@@ -18,6 +18,7 @@ const { networkConfig, useNetworkVariable, useNetworkVariables } =
     testnet: {
       url: getFullnodeUrl("testnet"),
       variables: {
+        counterPackageId: TESTNET_COUNTER_PACKAGE_ID,
         journalPackageId: TESTNET_JOURNAL_PACKAGE_ID,
         graphqlUrl: "https://graphql.testnet.sui.io/graphql",
       },
