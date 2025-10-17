@@ -5,6 +5,8 @@ import { useState } from "react";
 import { Journal } from "./Journal";
 import { CreateJournal } from "./CreateJournal";
 import { JournalList } from "./JournalList";
+import { JournalGallery } from "./JournalGallery";
+
 
 
 function App() {
@@ -58,6 +60,12 @@ function App() {
     }}
   />
   <JournalList
+    onSelectJournal={(id) => {
+      window.location.hash = id;
+      setJournal(id);
+    }}
+  />
+  <JournalGallery
     onSelectJournal={(id) => {
       window.location.hash = id;
       setJournal(id);
