@@ -25,19 +25,20 @@ export function JournalList({
    * Hint: Look at the useSuiClientQuery documentation for the correct format
    */
   const { data, isPending, error } = useSuiClientQuery(
-    'getOwnedObjects',
+    "getOwnedObjects",
     {
-         owner: '0x123',
-         filter: {
-            StructType: `${journalPackageId}::journal::Journal`,
-         },
-    },
-    {
-        gcTime: 10000,
+      owner: currentAccount?.address!,
+      filter: {
+        StructType: `${journalPackageId}::journal::Journal`,
+      },
+      options: {
         showContent: true,
         showType: true,
-        enabled: !!currentAccount?.address,
+      },
     },
+    {
+      enabled: !!currentAccount?.address,
+    }
   );
   if (isPending) {
     return (
